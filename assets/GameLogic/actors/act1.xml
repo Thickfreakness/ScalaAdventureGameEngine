@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Actor>
+<STATE_DEFAULT>
+<id>act1</id>
+    <action>
+        <type>STAND</type>
+    </action>
+    <ani_player1STAND>
+        <location>Textures/actorSprites/act1/stand.jpg</location>
+        <grid>8,2</grid>
+        <number>16</number>
+	</ani_player1STAND>
+    <action>
+        <type>WALK_LEFT</type>
+        <location>Textures\actorSprites\act1\left.jpg</location>
+        <grid>4,4</grid>
+        <number>20</number>
+    </action>
+    <action>
+        <type>WALK_RIGHT</type>
+        <location>Textures\actorSprites\act1\right.jpg</location>
+        <grid>4,4</grid>
+        <number>20</number>
+    </action>
+<actions>STAND,LEFT,RIGHT,UP,DOWN,PICK_UP,PICK_UP_LOW</actions>
+<size>8,22,1</size>
+<conversation>Conversations/act1_default.xml</conversation>
+</STATE_DEFAULT>
+</Actor>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<World>
+<Room>GameLogic/rooms/startRoom.xml</Room>
+<player>
+		    <xml>GameLogic/actors/act1.xml</xml>
+		    <id>player1</id>
+		    <action>STAND</action>
+		    <position>50,60,5</position>
+		    <ani_player1STAND>
+        		<location>Textures/actorSprites/act1/stand.jpg</location>
+        		<grid>8,2</grid>
+        		<number>16</number>
+			</ani_player1STAND>
+</player>
+<activeRoom>startRoom</activeRoom>
+</World>

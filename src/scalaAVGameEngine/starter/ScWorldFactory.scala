@@ -15,18 +15,18 @@ import scalaAVGameEngine.sWorld.RoomObject
 import scalaAVGameEngine.sWorld.World
 
 object ScWorldFactory{
-  val system = ActorSystem("World System")
+  //val system = ActorSystem("World System")
 
-  def createWorld(path: String): World = {
+  def createWorld(path: String, system: ActorSystem): World = {
     val config = XML.loadFile(path) // Add fail logic
-    val rooms = List(createRoom(XML.loadFile((config \ "Room").text))) // requires fixing
-    val player = createRoomActor(config \ "Player", true)
+    val rooms = List(createRoom(XML.loadFile((config \ "Room").text),system)) // requires fixing
+    val player = createRoomActor(config \ "Player", true,system)
     new World(rooms, player)
   }
 
-  def createRoom(info: NodeSeq): ActorRef = {
-    val actors = (info \ "Actor").map(a => createRoomActor(a, false))
-    val objects = (info \ "Object").map(o => createRoomObj(XML.loadFile(o.text)))
+  def createRoom(info: NodeSeq, system: ActorSystem): ActorRef = {
+    val actors = (info \ "Actor").map(a => createRoomActor(a, false,system))
+    val objects = (info \ "Object").map(o => createRoomObj(XML.loadFile(o.text),system))
 
     val walkable = (info \ "walkableArea").text.split(",")
     val walkStart = (info \ "walkableStart").text.split(",")
@@ -41,7 +41,7 @@ object ScWorldFactory{
   }
 
   //Add on combine + triggers
-  def createRoomObj(info: NodeSeq): ActorRef = {
+  def createRoomObj(info: NodeSeq, system: ActorSystem): ActorRef = {
     val id = (info \ "id").text
     val size = (info \ "size").text.split(",")
     val descriptions = (info \ "state").map { n =>
@@ -51,7 +51,7 @@ object ScWorldFactory{
     system.actorOf(Props(new RoomObject(id, size(0).toInt, size(1).toInt, size(1).toInt, null, null, descriptions.toMap[String, String])), id)
   }
 
-  def createRoomActor(info: NodeSeq, isPlayer: Boolean): ActorRef = {
+  def createRoomActor(info: NodeSeq, isPlayer: Boolean, system: ActorSystem): ActorRef = {
     val id = (info \ "id").text
     val descriptions = (info \ "state").map { n =>
       ((n \ "stateId").text, (n \ "description").text)

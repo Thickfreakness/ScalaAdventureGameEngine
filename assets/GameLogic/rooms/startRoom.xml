@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Room>
+<roomName>startRoom</roomName>
+<v_point>100,40</v_point>
+<img_startRoom>Textures/rooms/startRoom.jpg</img_startRoom>
+			<Actor>
+			  <xml>GameLogic/actors/act2.xml</xml>
+			 <id>act1</id>
+			 <action>STAND</action>
+			 <position>180,80,1</position>
+			 <startState>DEFAULT</startState>
+			 </Actor>
+			 
+			<Object>
+			 <id>tv</id>
+			  <xml>GameLogic/objects/tv.xml</xml>
+			 <position>75,25,2</position>
+			 <startState>DEFAULT</startState>
+			</Object>
+			
+			<Object>
+			 <id>table</id>
+			  <xml>GameLogic/objects/table.xml</xml>
+			 <position>125,50,4</position>
+			 <startState>EMPTY</startState>
+			</Object>
+			
+		<walkableArea>150,85,10</walkableArea>
+		<walkableStart>20,15,0</walkableStart>
+		<gridSize>220,120,10</gridSize>
+		<!-- <player>
+		    <xml>GameLogic/actors/act1.xml</xml>
+		    <id>player1</id>
+		    <action>STAND</action>
+		    <position>100,100,5</position>
+		</player>-->
+</Room>

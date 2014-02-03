@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Actor>
+<STATE_DEFAULT>
+<id>act1</id>
+    <action>
+        <type>STAND</type>
+    </action>
+    <ani_act1STAND>
+        <location>Textures/actorSprites/act1/Pengstand.jpg</location>
+        <grid>4,2</grid>
+        <number>8</number>
+        </ani_act1STAND>
+    <action>
+        <type>WALK_LEFT</type>
+        <location>Textures\actorSprites\act1\left.jpg</location>
+        <grid>4,4</grid>
+        <number>20</number>
+    </action>
+    <action>
+        <type>WALK_RIGHT</type>
+        <location>Textures\actorSprites\act1\right.jpg</location>
+        <grid>4,4</grid>
+        <number>20</number>
+    </action>
+<actions>STAND,LEFT,RIGHT,UP,DOWN,PICK_UP,PICK_UP_LOW</actions>
+<size>8,22,1</size>
+<conversation>Conversations/act1_default.xml</conversation>
+<description>There's some wierd dude standing in the corner.</description>
+</STATE_DEFAULT>
+</Actor>

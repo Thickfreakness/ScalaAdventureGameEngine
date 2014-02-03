@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conversation>
+<actorA>player</actorA>
+<actorB>act1</actorB>
+
+<intro>
+    <effect>neutral</effect>
+    <player>Hello there</player>
+    
+    <act1>Hi ...</act1>
+    <act1>... what's up?</act1>
+    
+</intro>
+<options>
+    <a>I'm looking to get a television</a>
+    <b>You're looking blue</b>
+    <c>I'm off</c>
+</options>
+<bulk>
+<a>
+    <effect>neutral</effect>
+    <player>I'm looking to get a television</player>
+    <act1>Can't you see one on the floor over there</act1>
+    <player>Ah yes</player>
+</a>
+<b>
+    <effect>neutral</effect>
+    <player>You're looking blue</player>
+    
+    <effect>blue</effect>
+    <act1>I feels it</act1>
+</b>
+<c>
+    <effect>neutral</effect>
+    <player>I'm off</player>
+    <act1>Bye</act1>
+    <trigger_ConvoEnd></trigger_ConvoEnd>
+</c>
+</bulk>
+</conversation>

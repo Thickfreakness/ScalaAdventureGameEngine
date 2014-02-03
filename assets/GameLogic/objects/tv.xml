@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item>
+<STATE_DEFAULT>
+<id>Old TV</id>
+<description>The TV doesn't work anymore</description>
+<img_DEFAULTtv>Textures/objects/TV.jpg</img_DEFAULTtv>
+<size>20,15,5</size>
+<on_use>
+	<trigger_pickup>
+	    <thought>I pick up the television....somehow</thought>
+	    <item>tv</item>
+	</trigger_pickup>
+</on_use>
+</STATE_DEFAULT>
+</Item>

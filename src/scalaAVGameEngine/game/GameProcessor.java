@@ -22,12 +22,13 @@ import scalaAVGameEngine.sWorld.World;
 import scalaAVGameEngine.starter.GameActivity;
 import scalaAVGameEngine.starter.ScWorldFactory;
 import akka.actor.ActorRef;
+import akka.actor.ActorSystem;
 import akka.actor.UntypedActor;
 import akka.pattern.Patterns;
 import akka.util.Timeout;
 import android.util.Log;
 
-public class GameProcessor extends UntypedActor implements Game, Runnable {
+public class GameProcessor implements Game, Runnable {
 
 	World world;
 	volatile boolean running = false;
@@ -43,7 +44,7 @@ public class GameProcessor extends UntypedActor implements Game, Runnable {
 
 	public GameProcessor(String gameState, GameActivity activity) {
 		// world = WorldFactory.createWorld(gameState, this);
-		world = ScWorldFactory.createWorld(gameState);
+		world = ScWorldFactory.createWorld(gameState,ActorSystem.create("NewSystem"));
 		this.activity = activity;
 		asserts = new Vector<AssertState>();
 		setStartScreen();
@@ -176,7 +177,7 @@ public class GameProcessor extends UntypedActor implements Game, Runnable {
 	}
 
 	public void action(int[] xyz) {
-		world.getActiveRoom().tell(new ActionHere(new Tuple3(xyz[0],xyz[1],xyz[2])), self());
+		world.getActiveRoom().tell(new ActionHere(new Tuple3(xyz[0],xyz[1],xyz[2])), null);
 	}
 
 	public void sayThought(String thought) {
@@ -218,12 +219,6 @@ public class GameProcessor extends UntypedActor implements Game, Runnable {
 //		conversing = false;
 //		speakingTo = null;
 //		screen.endConversation();
-	}
-
-	@Override
-	public void onReceive(Object arg0) throws Exception {
-		// TODO Auto-generated method stub
-
 	}
 
 }

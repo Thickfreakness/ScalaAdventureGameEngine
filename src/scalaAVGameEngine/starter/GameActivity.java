@@ -20,7 +20,6 @@ import android.graphics.Bitmap.Config;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
 

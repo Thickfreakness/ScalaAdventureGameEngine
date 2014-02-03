@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item>
+<STATE_EMPTY>
+<id>Wooden Table</id>
+<description>An old wooden table sits in the corner, looks pretty worn through</description>
+<img_EMPTYtable>Textures/objects/table.jpg</img_EMPTYtable>
+<size>40,25,1</size>
+<on_combine>
+    <trigger_UseItemOn>
+        <type>STATE_SET_AND_DISPOSE</type>
+        <item>table</item>
+        <effector>tv</effector>
+        <new_state>TV</new_state>
+    </trigger_UseItemOn>   
+</on_combine>
+</STATE_EMPTY>
+<STATE_TV>
+<description>The TV is now on the table</description>
+<img_TVtable>Textures/objects/tvOnTable.jpg</img_TVtable>
+<size>40,25,1</size>
+</STATE_TV>
+</Item>
