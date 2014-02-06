@@ -12,12 +12,7 @@ class World(rooms: List[ActorRef], val player: ActorRef) {
   def setActiveRoom(room: String) = activeRoom = room
 
   def getActiveRoom: ActorRef = {
-    (for (
-      r <- rooms;
-      val f = ask(r, WhoAreYou)(Timeout(1));
-      val id = Await.result(f, Duration("1")).asInstanceOf[String];
-      if (id == activeRoom)
-    ) yield r).head //Bit of a hack
+    (for(r <- rooms ; if(r.path.name == activeRoom)) yield r).head
   }
   def update(time: Float) = {
     for (r <- rooms) r ! Update(time)
